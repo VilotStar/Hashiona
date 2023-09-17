@@ -53,17 +53,17 @@ fn main() -> () {
             let mut changed_files = 0;
             let mut new_files = 0;
 
-            for (key, value) in cur_hash_map {
-                match old_hash_map.get(&key) {
-                    Some(old_value_opt) => {
-                        let old_value = old_value_opt.as_str().unwrap();
-                        if old_value != value {
-                            println!("File {key} has changed content");
+            for (file, hash) in cur_hash_map {
+                match old_hash_map.get(&file) {
+                    Some(old_hash_opt) => {
+                        let old_hash = old_hash_opt.as_str().unwrap();
+                        if old_hash != hash {
+                            println!("File {file} has changed content");
                             changed_files = changed_files + 1;
                         }
                     }
                     None => {
-                        println!("New file {key}");
+                        println!("New file {file}");
                         new_files = new_files + 1;
                     }
                 }
