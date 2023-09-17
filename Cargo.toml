@@ -1,0 +1,18 @@
+[package]
+name = "hashiona"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.4.3", features = ["derive"] }
+sha2 = "0.10.7"
+walkdir = "2.4.0"
+hex = "0.4.3"
+bson = "2.7.0"
+
+[profile.release]
+strip = true
+opt-level = "z"
+panic = "abort"
+lto = true
+codegen-units = 1
