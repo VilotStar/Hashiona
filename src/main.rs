@@ -38,6 +38,8 @@ fn main() -> () {
 
             let bson_bytes = bson::to_vec(&doc).unwrap();
             file.write_all(&bson_bytes).unwrap();
+
+            println!("== Generated mappa hash");
         }
         Command::Verify => {
             let file = File::open(&args.hash_file_path).unwrap();
